@@ -72,9 +72,9 @@ def meek_stv(candidates, seats, votes):
         if len(elected) >= seats:
             return elected
 
-        minimum_candidate, _ = max(
+        minimum_candidate, _ = min(
             ((c, v) for (c, v) in results.items() if keep_values[c] != 0),
-            key=lambda cv: cv[0],
+            key=lambda cv: cv[1],
         )
         keep_values[minimum_candidate] = 0
         exhausted_votes = n - sum(results.values())
