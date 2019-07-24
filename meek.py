@@ -89,7 +89,6 @@ if __name__ == "__main__":
         + [["Don"]] * 2
         + [["Eric"]]
     )
-    print(len(votes))
     seats = 3
     elected = meek_stv(candidates, seats, votes)
     print(elected)
