@@ -22,7 +22,7 @@ def meek_stv_round(candidates, keep_values, votes):
     return candidate_votes
 
 
-def meek_stv(candidates, seats, votes):
+def meek_stv(candidates, seats, votes, disqualified=None):
     """ Run a Meek STV election among the candidates for the given number of seats and votes.
     Meek STV is an iterative voting system that attempts to ensure three things,
 
@@ -58,6 +58,11 @@ def meek_stv(candidates, seats, votes):
     outcome is redistributed among the remaining candidates. This is the extra
     info that Meek STV brings to the table. """
     keep_values = {c: 1 for c in candidates}
+
+    if disqualified:
+        for candidate in disqualified:
+            keep_values[candidate] = 0
+
     exhausted_votes = 0
     n = len(votes)
     while True:
