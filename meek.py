@@ -1,4 +1,5 @@
 from collections import Counter
+import math
 
 
 def meek_stv_round(candidates, keep_values, votes):
@@ -68,20 +69,21 @@ def meek_stv(candidates, seats, votes, disqualified=None):
     while True:
         results = meek_stv_round(candidates, keep_values, votes)
         quota = (n - exhausted_votes) / (seats + 1)
-        elected = []
+        elected = {}
         for candidate, vote_count in results.items():
             if vote_count > quota:
-                elected.append((candidate, vote_count))
+                elected[candidate] = vote_count
                 keep_values[candidate] *= quota / vote_count
 
-        if len(elected) >= seats:
+        if len(elected) >= seats and all(math.isclose(v, quota, rel_tol=1e-6) for c, v in elected.items()):
             return elected
 
-        minimum_candidate, _ = min(
-            ((c, v) for (c, v) in results.items() if keep_values[c] != 0),
-            key=lambda cv: cv[1],
-        )
-        keep_values[minimum_candidate] = 0
+        if not elected: 
+            minimum_candidate, _ = min(
+                ((c, v) for (c, v) in results.items() if keep_values[c] != 0),
+                key=lambda cv: cv[1],
+            )
+            keep_values[minimum_candidate] = 0
         exhausted_votes = n - sum(results.values())
 
 
