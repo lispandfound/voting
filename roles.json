@@ -1,0 +1,67 @@
+[
+    {
+        "name": "President",
+        "held_in_conjunction": false,
+        "number_of_positions": 1
+    },
+    {
+        "name": "Vice President",
+        "held_in_conjunction": false,
+        "number_of_positions": 2
+    },
+    {
+        "name": "Secretary",
+        "held_in_conjunction": false,
+        "number_of_positions": 1
+    },
+    {
+        "name": "Treasurer",
+        "held_in_conjunction": false,
+        "number_of_positions": 1
+    },
+    {
+        "name": "Equity Officer",
+        "held_in_conjunction": true,
+        "number_of_positions": 1
+    },
+    {
+        "name": "Marketing Manager",
+        "held_in_conjunction": false,
+        "number_of_positions": 1
+    },
+    {
+        "name": "Social Media Manager",
+        "held_in_conjunction": false,
+        "number_of_positions": 1
+    },
+    {
+        "name": "Academic Events Manager",
+        "held_in_conjunction": false,
+        "number_of_positions": 2
+    },
+    {
+        "name": "Social Events Manager",
+        "held_in_conjunction": false,
+        "number_of_positions": 2
+    },
+    {
+        "name": "CSSE Postgraduate Representative",
+        "held_in_conjunction": true,
+        "number_of_positions": 1
+    },
+    {
+        "name": "Math/Stats Postgraduate Representative",
+        "held_in_conjunction": true,
+        "number_of_positions": 1
+    },
+    {
+        "name": "Third Year Representative",
+        "held_in_conjunction": false,
+        "number_of_positions": 2
+    },
+    {
+        "name": "Second Year Representative",
+        "held_in_conjunction": false,
+        "number_of_positions": 2
+    }
+]

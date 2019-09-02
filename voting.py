@@ -52,7 +52,7 @@ def parse_vote(value):
     return min(preferences)
 
 
-def read_vote(votes, vote):
+def read_vote(candidates, votes, vote):
     parsed_vote = defaultdict(dict)
     for col_name, value in vote.items():
         pos = parse_position(col_name)
@@ -60,6 +60,7 @@ def read_vote(votes, vote):
             continue
         vote = parse_vote(value)
         position, candidate = pos
+        candidates[position].add(candidate)
         if vote and vote not in parsed_vote[position]:
             parsed_vote[position][vote] = candidate
         elif vote in parsed_vote[position]:
@@ -71,10 +72,11 @@ def read_vote(votes, vote):
 
 def read_votes(members, votes_fp):
     votes = defaultdict(list)
+    candidates = defaultdict(set)
     with open(votes_fp) as infile:
         votes_reader = csv.DictReader(infile)
         for vote in votes_reader:
             user_code = vote[VOTES_USERNAME_COLUMN]
             if user_code.lower() in members:
-                read_vote(votes, vote)
-    return votes
+                read_vote(candidates,votes, vote)
+    return candidates, votes
