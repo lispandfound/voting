@@ -7,7 +7,7 @@
     {
         "name": "Vice President",
         "held_in_conjunction": false,
-        "number_of_positions": 2
+        "number_of_positions": 1
     },
     {
         "name": "Secretary",
@@ -22,7 +22,7 @@
     {
         "name": "Equity Officer",
         "held_in_conjunction": true,
-        "number_of_positions": 1
+        "number_of_positions": 2
     },
     {
         "name": "Marketing Manager",
@@ -53,6 +53,11 @@
         "name": "Math/Stats Postgraduate Representative",
         "held_in_conjunction": true,
         "number_of_positions": 1
+    },
+    {
+        "name": "Maths & Stats Representative",
+        "held_in_conjunction": false,
+        "number_of_positions": 2
     },
     {
         "name": "Third Year Representative",
