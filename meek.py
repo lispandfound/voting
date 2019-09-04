@@ -71,7 +71,7 @@ def meek_stv(candidates, seats, votes, disqualified=None):
         quota = (n - exhausted_votes) / (seats + 1)
         elected = {}
         for candidate, vote_count in results.items():
-            if vote_count > quota:
+            if vote_count >= quota:
                 elected[candidate] = vote_count
                 keep_values[candidate] *= quota / vote_count
 
