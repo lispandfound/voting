@@ -19,6 +19,7 @@ def main():
         print(f'Results for election of {role.name}:')
         try:
             elected = meek.meek_stv(candidates[role.name], role.number_of_positions, votes[role.name], disqualified)
+                set() if role.held_in_conjunction else disqualified,
         except ValueError as e:
             print(f'Could not elect a valid candidate!')
             print(f'Our candidates: {candidates[role.name]}, disqualified candidates: {disqualified}.')
