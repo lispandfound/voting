@@ -28,12 +28,21 @@ def main():
     committee_roles = roles.load_roles(args.roles_json)
     disqualified = set()
     for role in committee_roles:
+        # This handles the case where the particular role has no candidates
+        # e.g for the 2019 secretary position. In this case we just skip the
+        # election for this role.
+        if not role.name not in candidates:
+            continue
         print()
         print(f"Results for election of {role.name}:")
         try:
+            role_candidates = candidates[role.name]
             elected = meek.meek_stv(
-                candidates[role.name],
-                role.number_of_positions,
+                role_candidates[role.name],
+                # In the case where the number of canidates running is fewer the number of seats
+                # we instead elect as many as possible (everyone except no confidence).
+                # This occurred in the 2019 elections for equity officer.
+                min(len(role_candidates) - 1, role.number_of_positions),
                 votes[role.name],
                 set() if role.held_in_conjunction else disqualified,
             )
