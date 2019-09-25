@@ -73,10 +73,12 @@ def read_vote(candidates, votes, vote):
 def read_votes(members, votes_fp):
     votes = defaultdict(list)
     candidates = defaultdict(set)
+    seen_voters = set()
     with open(votes_fp) as infile:
         votes_reader = csv.DictReader(infile)
         for vote in votes_reader:
-            user_code = vote[VOTES_USERNAME_COLUMN]
-            if user_code.lower() in members:
-                read_vote(candidates,votes, vote)
+            user_code = vote[VOTES_USERNAME_COLUMN].lower()
+            if user_code in members and user_code not in seen_voters:
+                seen_voters.add(user_code)
+                read_vote(candidates, votes, vote)
     return candidates, votes
