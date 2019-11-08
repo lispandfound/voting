@@ -23,7 +23,7 @@ def main():
     )
     args = parser.parse_args()
     members = voting.read_members(args.members_csv)
-    candidates, votes = voting.read_votes(members, args.votes_csv)
+    candidates, votes = voting.read_ballots(members, args.votes_csv)
     committee_roles = roles.load_roles(args.roles_json)
     disqualified = set()
     for role in committee_roles:
