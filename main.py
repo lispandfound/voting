@@ -45,7 +45,7 @@ def main():
                 votes[role.name],
                 set() if role.held_in_conjunction else disqualified,
             )
-        except ValueError as e:
+        except ValueError:
             print(f"Could not elect a valid candidate!")
             print(
                 f"Our candidates: {candidates[role.name]}, disqualified candidates: {disqualified}."
