@@ -74,12 +74,9 @@ def meek_stv(candidates, seats, votes, disqualified=None):
             if vote_count >= quota:
                 elected[candidate] = vote_count
                 keep_values[candidate] *= quota / vote_count
-        if len(elected) >= seats and all(
-            math.isclose(v, quota, rel_tol=1e-6) for c, v in elected.items()
-        ):
+        if len(elected) >= seats:
             return elected
-
-        if not elected:
+        else:
             minimum_candidate, _ = min(
                 ((c, v) for (c, v) in results.items() if keep_values[c] != 0),
                 key=lambda cv: cv[1],

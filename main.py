@@ -31,14 +31,14 @@ def main():
         # This handles the case where the particular role has no candidates
         # e.g for the 2019 secretary position. In this case we just skip the
         # election for this role.
-        if not role.name not in candidates:
+        if role.name not in candidates:
             continue
         print()
         print(f"Results for election of {role.name}:")
         try:
             role_candidates = candidates[role.name]
             elected = meek.meek_stv(
-                role_candidates[role.name],
+                role_candidates,
                 # In the case where the number of canidates running is fewer the number of seats
                 # we instead elect as many as possible (everyone except no confidence).
                 # This occurred in the 2019 elections for equity officer.
