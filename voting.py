@@ -1,7 +1,6 @@
 import re
 import csv
 from collections import defaultdict
-import unicodedata
 
 USER_RE = r"[A-z]{3,4}\d{2,3}"
 MEMBERS_USERNAME_COLUMN = "UC Username"

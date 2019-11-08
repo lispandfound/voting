@@ -1,5 +1,4 @@
 from collections import Counter
-import math
 
 
 def meek_stv_round(candidates, keep_values, votes):

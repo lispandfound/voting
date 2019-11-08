@@ -2,11 +2,10 @@ import roles
 import voting
 import meek
 import argparse
-import pathlib
-from collections import defaultdict
 
 
 def main():
+    """ Main function """
     parser = argparse.ArgumentParser(description="CompSoc voting tool.")
     parser.add_argument(
         "votes_csv", metavar="VOTES_CSV", help="Location of CSV file containing votes."
